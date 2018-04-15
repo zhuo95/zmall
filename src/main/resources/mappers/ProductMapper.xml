@@ -16,7 +16,7 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.mmall.pojo.Product">
+  <resultMap id="BaseResultMap" type="com.zmall.pojo.Product">
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="category_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
@@ -46,7 +46,7 @@
     delete from mmall_product
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mmall.pojo.Product">
+  <insert id="insert" parameterType="com.zmall.pojo.Product">
     insert into mmall_product (id, category_id, name, 
       subtitle, main_image, sub_images, 
       detail, price, stock, 
@@ -58,7 +58,7 @@
       #{status,jdbcType=INTEGER}, now(), now()
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.mmall.pojo.Product">
+  <insert id="insertSelective" parameterType="com.zmall.pojo.Product">
     insert into mmall_product
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -137,7 +137,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.pojo.Product">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zmall.pojo.Product">
     update mmall_product
     <set>
       <if test="categoryId != null">
@@ -174,21 +174,6 @@
         update_time = now(),
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.mmall.pojo.Product">
-    update mmall_product
-    set category_id = #{categoryId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      subtitle = #{subtitle,jdbcType=VARCHAR},
-      main_image = #{mainImage,jdbcType=VARCHAR},
-      sub_images = #{subImages,jdbcType=VARCHAR},
-      detail = #{detail,jdbcType=VARCHAR},
-      price = #{price,jdbcType=DECIMAL},
-      stock = #{stock,jdbcType=INTEGER},
-      status = #{status,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
