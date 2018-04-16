@@ -196,4 +196,13 @@ public class UserServiceimpl implements IUserService {
         return ServerResponse.creatBySuccess(user);
     }
 
+    //backend
+    //检查是否是管理员
+    public ServerResponse checkAdminRole(User user){
+        if(user!=null&& user.getRole().intValue() == Const.Role.ROLE_ADMIN){
+            return ServerResponse.creatBySuccess();
+        }
+        return ServerResponse.creatByError();
+    }
+
 }
