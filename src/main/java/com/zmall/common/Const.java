@@ -20,6 +20,15 @@ public class Const {
         Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc","price_asc");
     }
 
+    public interface Cart{
+        int CHECKED = 1;//购物车中选中
+        int UN_CHECKED=0;//未选中
+
+        String  LIMIT_NUM_FAIL = "LIMIT_NUM_FAIL";
+        String  LIMIT_NUM_SUCCESS = "LIMIT_NUM_SUCCESS";
+
+    }
+
     public enum productStatusEbnum{
         ON_SALE("Online",1);
 
